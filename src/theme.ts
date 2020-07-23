@@ -14,7 +14,7 @@ const defaultTheme: ThemeInterface = {
   colors: {
     tonalOffset: 0.2,
     primary: {
-      main: '#32329f',
+      main: '#0f555f',
       light: ({ colors }) => lighten(colors.tonalOffset, colors.primary.main),
       dark: ({ colors }) => darken(colors.tonalOffset, colors.primary.main),
       contrastText: ({ colors }) => readableColor(colors.primary.main),
@@ -133,8 +133,9 @@ const defaultTheme: ThemeInterface = {
     },
   },
   sidebar: {
+    borderRadius: '0.375rem',
     width: '260px',
-    backgroundColor: '#fafafa',
+    backgroundColor: '#f3f7f9',
     textColor: '#333333',
     activeTextColor: theme =>
       theme.sidebar.textColor !== defaultTheme.sidebar!.textColor
@@ -341,6 +342,7 @@ export interface ResolvedThemeInterface {
     };
   };
   sidebar: {
+    borderRadius: string;
     width: string;
     backgroundColor: string;
     textColor: string;

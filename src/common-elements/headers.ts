@@ -1,9 +1,9 @@
 import styled, { css, extensionsHook } from '../styled-components';
 
 const headerFontSize = {
-  1: '1.85714em',
-  2: '1.57143em',
-  3: '1.27em',
+  1: '2rem',
+  2: '1.5rem',
+  3: '1.25rem',
 };
 
 export const headerCommonMixin = level => css`
@@ -11,26 +11,27 @@ export const headerCommonMixin = level => css`
   font-weight: ${({ theme }) => theme.typography.headings.fontWeight};
   font-size: ${headerFontSize[level]};
   line-height: ${({ theme }) => theme.typography.headings.lineHeight};
+  margin-bottom: 0;
 `;
 
 export const H1 = styled.h1`
   ${headerCommonMixin(1)};
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.primary.main};
 
   ${extensionsHook('H1')};
 `;
 
 export const H2 = styled.h2`
   ${headerCommonMixin(2)};
-  color: ${({ theme }) => theme.colors.text.primary};
-  margin: 0 0 20px;
+  color: #f5a08c;
+  margin: 12px 0 0 0;
 
   ${extensionsHook('H2')};
 `;
 
-export const H3 = styled.h2`
+export const H3 = styled.h3`
   ${headerCommonMixin(3)};
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: #55585d;
 
   ${extensionsHook('H3')};
 `;

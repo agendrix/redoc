@@ -14,23 +14,35 @@ export class ContentItems extends React.Component<{
 }> {
   render() {
     const items = this.props.items;
-    if (items.length === 0) {
+    const itemsCount = items.length;
+    if (itemsCount === 0) {
       return null;
     }
+
+    const levelLastItem = items[itemsCount - 1];
     return items.map(item => {
-      return <ContentItem key={item.id} item={item} />;
+      const isLevelLastItem = item === levelLastItem;
+      const isRootItemWithoutChild = item.depth === 1 && item.items.length === 0;
+      return (
+        <ContentItem
+          key={item.id}
+          item={item}
+          isUnderlined={isLevelLastItem || isRootItemWithoutChild}
+        />
+      );
     });
   }
 }
 
 export interface ContentItemProps {
   item: ContentItemModel;
+  isUnderlined: boolean;
 }
 
 @observer
 export class ContentItem extends React.Component<ContentItemProps> {
   render() {
-    const item = this.props.item;
+    const { item, isUnderlined } = this.props;
     let content;
     const { type } = item;
     switch (type) {
@@ -48,10 +60,16 @@ export class ContentItem extends React.Component<ContentItemProps> {
         content = <SectionItem {...this.props} />;
     }
 
+    // This is a mess
     return (
       <>
         {content && (
-          <Section id={item.id} $underlined={item.type === 'operation'}>
+          <Section
+            id={item.id}
+            $padding={type === 'operation' ? '24' : '8'}
+            $underlined={isUnderlined}
+            $isOperation={type === 'operation'}
+          >
             {content}
           </Section>
         )}

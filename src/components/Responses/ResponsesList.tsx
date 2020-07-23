@@ -5,10 +5,10 @@ import styled from '../../styled-components';
 import { ResponseView } from './Response';
 
 const ResponsesHeader = styled.h3`
-  font-size: 1.3em;
+  font-size: 1.25rem;
   padding: 0.2em 0;
   margin: 3em 0 1.1em;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: #55585d;
   font-weight: normal;
 `;
 

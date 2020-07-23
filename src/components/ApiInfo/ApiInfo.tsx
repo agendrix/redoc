@@ -7,14 +7,7 @@ import { MiddlePanel, Row, Section } from '../../common-elements/';
 import { ExternalDocumentation } from '../ExternalDocumentation/ExternalDocumentation';
 import { Markdown } from '../Markdown/Markdown';
 import { StyledMarkdownBlock } from '../Markdown/styled.elements';
-import {
-  ApiHeader,
-  DownloadButton,
-  InfoSpan,
-  InfoSpanBox,
-  InfoSpanBoxWrap,
-} from './styled.elements';
-import { l } from '../../services/Labels';
+import { ApiHeader, InfoSpan, InfoSpanBox, InfoSpanBoxWrap } from './styled.elements';
 
 export interface ApiInfoProps {
   store: AppStore;
@@ -31,10 +24,6 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
   render() {
     const { store } = this.props;
     const { info, externalDocs } = store.spec;
-    const hideDownloadButton = store.options.hideDownloadButton;
-
-    const downloadFilename = info.downloadFileName;
-    const downloadLink = info.downloadLink;
 
     const license =
       (info.license && (
@@ -77,25 +66,12 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
     const version = (info.version && <span>({info.version})</span>) || null;
 
     return (
-      <Section>
+      <Section $padding="20" $underlined={true}>
         <Row>
           <MiddlePanel className="api-info">
             <ApiHeader>
               {info.title} {version}
             </ApiHeader>
-            {!hideDownloadButton && (
-              <p>
-                {l('downloadSpecification')}:
-                <DownloadButton
-                  download={downloadFilename || true}
-                  target="_blank"
-                  href={downloadLink}
-                  onClick={this.handleDownloadClick}
-                >
-                  {l('download')}
-                </DownloadButton>
-              </p>
-            )}
             <StyledMarkdownBlock>
               {((info.license || info.contact || info.termsOfService) && (
                 <InfoSpanBoxWrap>
