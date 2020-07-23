@@ -10,7 +10,7 @@ import { StoreBuilder } from './StoreBuilder';
 export interface RedocStandaloneProps {
   spec?: object;
   specUrl?: string;
-  prependedSections?: Array<ReactNode>;
+  prependedSections?: Array<React.ReactNode>;
   options?: RedocRawOptions;
   onLoaded?: (e?: Error) => any;
 }
@@ -39,7 +39,7 @@ export class RedocStandalone extends React.PureComponent<RedocStandaloneProps> {
   };
 
   render() {
-    const { spec, specUrl, options = {}, onLoaded } = this.props;
+    const { spec, specUrl, prependedSections, options = {}, onLoaded } = this.props;
     const hideLoading = options.hideLoading !== undefined;
 
     const normalizedOpts = new RedocNormalizedOptions(options);

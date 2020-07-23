@@ -6,7 +6,6 @@ import { OptionsContext } from '../OptionsProvider';
 import { MenuItems } from './MenuItems';
 
 import { PerfectScrollbarWrap } from '../../common-elements/perfect-scrollbar';
-import { RedocAttribution } from './styled.elements';
 
 @observer
 export class SideMenu extends React.Component<{ menu: MenuStore; className?: string }> {
@@ -41,7 +40,7 @@ export class SideMenu extends React.Component<{ menu: MenuStore; className?: str
     });
   };
 
-  private saveScrollUpdate = (upd) => {
+  private saveScrollUpdate = upd => {
     this._updateScroll = upd;
   };
 }

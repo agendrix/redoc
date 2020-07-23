@@ -17,7 +17,7 @@ import { StoreProvider } from '../StoreBuilder';
 
 export interface RedocProps {
   store: AppStore;
-  prependedSections?: Array<ReactNode>;
+  prependedSections?: Array<React.ReactNode>;
 }
 
 export class Redoc extends React.Component<RedocProps> {
