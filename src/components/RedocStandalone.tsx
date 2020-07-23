@@ -10,6 +10,7 @@ import { StoreBuilder } from './StoreBuilder';
 export interface RedocStandaloneProps {
   spec?: object;
   specUrl?: string;
+  prependedSections?: Array<ReactNode>;
   options?: RedocRawOptions;
   onLoaded?: (e?: Error) => any;
 }
@@ -48,7 +49,7 @@ export class RedocStandalone extends React.PureComponent<RedocStandaloneProps> {
         <StoreBuilder spec={spec} specUrl={specUrl} options={options} onLoaded={onLoaded}>
           {({ loading, store }) =>
             !loading ? (
-              <Redoc store={store!} />
+              <Redoc store={store!} prependedSections={prependedSections} />
             ) : hideLoading ? null : (
               <Loading color={normalizedOpts.theme.colors.primary.main} />
             )

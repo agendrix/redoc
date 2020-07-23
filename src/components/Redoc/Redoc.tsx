@@ -17,6 +17,7 @@ import { StoreProvider } from '../StoreBuilder';
 
 export interface RedocProps {
   store: AppStore;
+  prependedSections?: Array<ReactNode>;
 }
 
 export class Redoc extends React.Component<RedocProps> {
@@ -35,6 +36,7 @@ export class Redoc extends React.Component<RedocProps> {
   render() {
     const {
       store: { spec, menu, options, search, marker },
+      prependedSections,
     } = this.props;
     const store = this.props.store;
     return (
@@ -56,6 +58,7 @@ export class Redoc extends React.Component<RedocProps> {
                 <SideMenu menu={menu} />
               </StickyResponsiveSidebar>
               <ApiContentWrap className="api-content">
+                {prependedSections}
                 <ApiInfo store={store} />
                 <ContentItems items={menu.items as any} />
               </ApiContentWrap>
