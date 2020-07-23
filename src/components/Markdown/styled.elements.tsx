@@ -117,9 +117,11 @@ export const StyledMarkdownBlock = styled(
 
   ul,
   ol {
+    list-style: circle;
     padding-left: 2em;
-    margin: 0;
-    margin-bottom: 1em;
+    margin: 1em 0;
+    font-size: 1rem;
+    color: #55585d;
 
     ul,
     ol {

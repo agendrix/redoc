@@ -7,14 +7,7 @@ import { MiddlePanel, Row, Section } from '../../common-elements/';
 import { ExternalDocumentation } from '../ExternalDocumentation/ExternalDocumentation';
 import { Markdown } from '../Markdown/Markdown';
 import { StyledMarkdownBlock } from '../Markdown/styled.elements';
-import {
-  ApiHeader,
-  DownloadButton,
-  InfoSpan,
-  InfoSpanBox,
-  InfoSpanBoxWrap,
-} from './styled.elements';
-import { l } from '../../services/Labels';
+import { ApiHeader, InfoSpan, InfoSpanBox, InfoSpanBoxWrap } from './styled.elements';
 
 export interface ApiInfoProps {
   store: AppStore;
@@ -25,10 +18,7 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
   render() {
     const { store } = this.props;
     const { info, externalDocs } = store.spec;
-    const hideDownloadButtons = store.options.hideDownloadButtons;
 
-    const downloadUrls = info.downloadUrls;
-    const downloadFileName = info.downloadFileName;
     const license =
       (info.license && (
         <InfoSpan>
@@ -70,30 +60,12 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
     const version = (info.version && <span>({info.version})</span>) || null;
 
     return (
-      <Section>
+      <Section $padding="20" $underlined={true}>
         <Row>
           <MiddlePanel className="api-info">
             <ApiHeader>
               {info.title} {version}
             </ApiHeader>
-            {!hideDownloadButtons && (
-              <p>
-                {l('downloadSpecification')}:
-                {downloadUrls?.map(({ title, url }) => {
-                  return (
-                    <DownloadButton
-                      download={downloadFileName || true}
-                      target="_blank"
-                      href={url}
-                      rel="noreferrer"
-                      key={url}
-                    >
-                      {title}
-                    </DownloadButton>
-                  );
-                })}
-              </p>
-            )}
             <StyledMarkdownBlock>
               {((info.license || info.contact || info.termsOfService) && (
                 <InfoSpanBoxWrap>

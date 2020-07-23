@@ -25,7 +25,7 @@ export class SecurityDefs extends React.PureComponent<SecurityDefsProps> {
           <MiddlePanel>
             <H2>
               <ShareLink to={scheme.sectionId} />
-              {scheme.displayName}
+              {scheme.id === 'oauth' ? 'OAuth' : scheme.id}
             </H2>
             <Markdown source={scheme.description || ''} />
             <SecurityDetailsStyle>

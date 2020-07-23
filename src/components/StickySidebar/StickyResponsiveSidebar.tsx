@@ -26,6 +26,7 @@ export interface StickySidebarState {
 const stickyfill = Stickyfill && Stickyfill();
 
 const StyledStickySidebar = styled.div<{ $open?: boolean }>`
+  border-radius: ${props => props.theme.sidebar.borderRadius};
   width: ${props => props.theme.sidebar.width};
   background-color: ${props => props.theme.sidebar.backgroundColor};
   overflow: hidden;

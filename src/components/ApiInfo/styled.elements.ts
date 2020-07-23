@@ -7,7 +7,7 @@ export const ApiInfoWrap = MiddlePanel;
 
 export const ApiHeader = styled(H1)`
   margin-top: 0;
-  margin-bottom: 0.5em;
+  padding-top: 20px !important;
 
   ${extensionsHook('ApiHeader')};
 `;
