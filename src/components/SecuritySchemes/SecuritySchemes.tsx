@@ -25,7 +25,7 @@ export class OAuthFlow extends React.PureComponent<OAuthFlowProps> {
     const { type, flow } = this.props;
     return (
       <tr>
-        <th> {type} OAuth Flow </th>
+        <th> {type === 'authorizationCode' ? 'Authorization code' : type} OAuth flow </th>
         <td>
           {type === 'implicit' || type === 'authorizationCode' ? (
             <div>

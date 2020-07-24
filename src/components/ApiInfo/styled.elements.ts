@@ -13,10 +13,11 @@ export const ApiHeader = styled(H1)`
 `;
 
 export const DownloadButton = styled.a`
-  border: 1px solid ${props => props.theme.colors.primary.main};
+  border-bottom: 1px solid ${props => props.theme.colors.primary.main};
   color: ${props => props.theme.colors.primary.main};
   font-weight: normal;
   margin-left: 0.5em;
+  margin-top: 0.5em;
   padding: 4px 8px 4px;
   display: inline-block;
   text-decoration: none;
@@ -46,6 +47,6 @@ export const InfoSpanBoxWrap = styled.div`
 export const InfoSpanBox = styled.div`
   display: flex;
   flex-wrap: wrap;
-  // hide separator on new lines: idea from https://stackoverflow.com/a/31732902/1749888
+  // hide separator on new lines: idea from;hideseparatoronnewlines https://stackoverflow.com/a/31732902/1749888;
   margin-left: -${delimiterWidth}px;
 `;

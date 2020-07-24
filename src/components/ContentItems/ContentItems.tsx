@@ -51,7 +51,7 @@ export class ContentItem extends React.Component<ContentItemProps> {
     return (
       <>
         {content && (
-          <Section id={item.id} underlined={item.type === 'operation'}>
+          <Section id={item.id} underlined={type !== 'tag'}>
             {content}
           </Section>
         )}

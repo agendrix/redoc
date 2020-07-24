@@ -1,9 +1,9 @@
 import styled, { css, extensionsHook } from '../styled-components';
 
 const headerFontSize = {
-  1: '1.85714em',
-  2: '1.57143em',
-  3: '1.27em',
+  1: '2rem',
+  2: '1.5rem',
+  3: '1.25rem',
 };
 
 export const headerCommonMixin = level => css`
@@ -22,14 +22,14 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   ${headerCommonMixin(2)};
-  color: black;
+  color: #f5a08c;
 
   ${extensionsHook('H2')};
 `;
 
-export const H3 = styled.h2`
+export const H3 = styled.h3`
   ${headerCommonMixin(3)};
-  color: black;
+  color: #55585d;
 
   ${extensionsHook('H3')};
 `;

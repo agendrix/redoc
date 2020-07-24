@@ -21,7 +21,7 @@ export interface ApiInfoProps {
 
 @observer
 export class ApiInfo extends React.Component<ApiInfoProps> {
-  handleDownloadClick = (e) => {
+  handleDownloadClick = e => {
     if (!e.target.href) {
       e.target.href = this.props.store.spec.info.downloadLink;
     }
@@ -68,28 +68,11 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
       )) ||
       null;
 
-    const version = (info.version && <span>({info.version})</span>) || null;
-
     return (
-      <Section>
+      <Section underlined={true}>
         <Row>
           <MiddlePanel className="api-info">
-            <ApiHeader>
-              {info.title} {version}
-            </ApiHeader>
-            {!hideDownloadButton && (
-              <p>
-                Download OpenAPI specification:
-                <DownloadButton
-                  download={downloadFilename || true}
-                  target="_blank"
-                  href={downloadLink}
-                  onClick={this.handleDownloadClick}
-                >
-                  Download
-                </DownloadButton>
-              </p>
-            )}
+            <ApiHeader>{info.title}</ApiHeader>
             <StyledMarkdownBlock>
               {((info.license || info.contact || info.termsOfService) && (
                 <InfoSpanBoxWrap>
@@ -100,7 +83,24 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
               )) ||
                 null}
             </StyledMarkdownBlock>
-            <Markdown source={store.spec.info.description} data-role="redoc-description" />
+            <Markdown
+              className="greenery"
+              source={store.spec.info.description}
+              data-role="redoc-description"
+            />
+            {!hideDownloadButton && (
+              <p>
+                <DownloadButton
+                  download={downloadFilename || true}
+                  target="_blank"
+                  href={downloadLink}
+                  onClick={this.handleDownloadClick}
+                >
+                  Download
+                </DownloadButton>
+                OpenAPI 3.0 specification.
+              </p>
+            )}
             {externalDocs && <ExternalDocumentation externalDocs={externalDocs} />}
           </MiddlePanel>
         </Row>

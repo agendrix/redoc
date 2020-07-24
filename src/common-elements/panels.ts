@@ -17,6 +17,17 @@ export const MiddlePanel = styled.div<{ compact?: boolean }>`
 export const Section = styled.div.attrs(props => ({
   [SECTION_ATTR]: props.id,
 }))<{ underlined?: boolean }>`
+  p {
+    font-size: 1rem;
+    color: #55585d;
+  }
+
+  .greenery {
+    p {
+      color: #0f6973 !important;
+    }
+  }
+
   padding: ${props => props.theme.spacing.sectionVertical}px 0;
 
   &:last-child {
@@ -41,7 +52,7 @@ export const Section = styled.div.attrs(props => ({
       width: 100%;
       display: block;
       content: '';
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid #b8d0d1;
     }
   `) ||
     ''}
