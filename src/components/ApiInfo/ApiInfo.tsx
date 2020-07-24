@@ -7,13 +7,7 @@ import { MiddlePanel, Row, Section } from '../../common-elements/';
 import { ExternalDocumentation } from '../ExternalDocumentation/ExternalDocumentation';
 import { Markdown } from '../Markdown/Markdown';
 import { StyledMarkdownBlock } from '../Markdown/styled.elements';
-import {
-  ApiHeader,
-  DownloadButton,
-  InfoSpan,
-  InfoSpanBox,
-  InfoSpanBoxWrap,
-} from './styled.elements';
+import { ApiHeader, InfoSpan, InfoSpanBox, InfoSpanBoxWrap } from './styled.elements';
 
 export interface ApiInfoProps {
   store: AppStore;
@@ -30,10 +24,6 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
   render() {
     const { store } = this.props;
     const { info, externalDocs } = store.spec;
-    const hideDownloadButton = store.options.hideDownloadButton;
-
-    const downloadFilename = info.downloadFileName;
-    const downloadLink = info.downloadLink;
 
     const license =
       (info.license && (
@@ -88,19 +78,6 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
               source={store.spec.info.description}
               data-role="redoc-description"
             />
-            {!hideDownloadButton && (
-              <p>
-                <DownloadButton
-                  download={downloadFilename || true}
-                  target="_blank"
-                  href={downloadLink}
-                  onClick={this.handleDownloadClick}
-                >
-                  Download
-                </DownloadButton>
-                OpenAPI 3.0 specification.
-              </p>
-            )}
             {externalDocs && <ExternalDocumentation externalDocs={externalDocs} />}
           </MiddlePanel>
         </Row>
