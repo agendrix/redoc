@@ -127,8 +127,9 @@ const defaultTheme: ThemeInterface = {
     },
   },
   sidebar: {
+    borderRadius: '0.375rem',
     width: '260px',
-    backgroundColor: '#fafafa',
+    backgroundColor: '#f3f7f9',
     textColor: '#333333',
     activeTextColor: theme =>
       theme.sidebar.textColor !== defaultTheme.sidebar!.textColor
