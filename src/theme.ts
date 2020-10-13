@@ -306,6 +306,7 @@ export interface ResolvedThemeInterface {
     };
   };
   sidebar: {
+    borderRadius: string;
     width: string;
     backgroundColor: string;
     textColor: string;
