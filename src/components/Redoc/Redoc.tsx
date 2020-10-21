@@ -17,8 +17,6 @@ import { StoreProvider } from '../StoreBuilder';
 
 export interface RedocProps {
   store: AppStore;
-  prependedSections?: Array<React.ReactNode>;
-  postpendedSections?: Array<React.ReactNode>;
 }
 
 export class Redoc extends React.Component<RedocProps> {
@@ -37,11 +35,8 @@ export class Redoc extends React.Component<RedocProps> {
   render() {
     const {
       store: { spec, menu, options, search, marker },
-      prependedSections,
-      postpendedSections,
     } = this.props;
     const store = this.props.store;
-    const authenticationSection = menu.items.shift();
 
     return (
       <ThemeProvider theme={options.theme}>
@@ -63,9 +58,6 @@ export class Redoc extends React.Component<RedocProps> {
               </StickyResponsiveSidebar>
               <ApiContentWrap className="api-content">
                 <ApiInfo store={store} />
-                {prependedSections}
-                <ContentItems items={[authenticationSection] as any} />
-                {postpendedSections}
                 <ContentItems items={menu.items as any} />
               </ApiContentWrap>
               <BackgroundStub />

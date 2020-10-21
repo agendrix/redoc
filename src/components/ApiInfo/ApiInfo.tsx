@@ -59,7 +59,7 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
       null;
 
     return (
-      <Section underlined={true}>
+      <Section padding="20" underlined={true}>
         <Row>
           <MiddlePanel className="api-info">
             <ApiHeader>{info.title}</ApiHeader>

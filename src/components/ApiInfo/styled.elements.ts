@@ -8,6 +8,7 @@ export const ApiInfoWrap = MiddlePanel;
 export const ApiHeader = styled(H1)`
   margin-top: 0;
   margin-bottom: 0.5em;
+  padding-top: 20px !important;
 
   ${extensionsHook('ApiHeader')};
 `;
@@ -47,6 +48,5 @@ export const InfoSpanBoxWrap = styled.div`
 export const InfoSpanBox = styled.div`
   display: flex;
   flex-wrap: wrap;
-  // hide separator on new lines: idea from;hideseparatoronnewlines https://stackoverflow.com/a/31732902/1749888;
   margin-left: -${delimiterWidth}px;
 `;

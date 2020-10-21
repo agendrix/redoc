@@ -16,7 +16,16 @@ export const MiddlePanel = styled.div<{ compact?: boolean }>`
 
 export const Section = styled.div.attrs(props => ({
   [SECTION_ATTR]: props.id,
-}))<{ underlined?: boolean }>`
+}))<{
+  underlined?: boolean;
+  padding?: string;
+  isOperation?: boolean;
+  isSecurityDefinitions?: boolean;
+}>`
+  h1 {
+    padding-top: 32px;
+  }
+
   p {
     font-size: 1rem;
     color: #55585d;
@@ -28,7 +37,19 @@ export const Section = styled.div.attrs(props => ({
     }
   }
 
-  padding: ${props => props.theme.spacing.sectionVertical}px 0;
+  padding: ${({ underlined, padding, isOperation, isSecurityDefinitions, theme }) => {
+    if (isSecurityDefinitions && padding) {
+      return `${padding}px 0`;
+    } else if (underlined && padding && isOperation) {
+      return `${padding}px 0 60px 0`;
+    } else if (underlined && padding) {
+      return '0 0 60px 0';
+    } else if (padding) {
+      return `${padding}px 0`;
+    } else {
+      return `${theme.spacing.sectionVertical}px 0`;
+    }
+  }};
 
   &:last-child {
     min-height: calc(100vh + 1px);
