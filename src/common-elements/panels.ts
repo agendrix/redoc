@@ -31,12 +31,6 @@ export const Section = styled.div.attrs(props => ({
     color: #55585d;
   }
 
-  .greenery {
-    p {
-      color: #0f6973 !important;
-    }
-  }
-
   padding: ${({ underlined, padding, isOperation, isSecurityDefinitions, theme }) => {
     if (isSecurityDefinitions && padding) {
       return `${padding}px 0`;
