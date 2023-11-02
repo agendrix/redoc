@@ -66,7 +66,7 @@ export class ContentItem extends React.Component<ContentItemProps> {
         {content && (
           <Section
             id={item.id}
-            $padding={type === 'operation' ? '24' : '8'}
+            $padding={type === 'operation' ? '12' : '8'}
             $underlined={isUnderlined}
             $isOperation={type === 'operation'}
           >
