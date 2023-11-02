@@ -14,3 +14,5 @@ export * from './utils';
 
 export * from './styled-components';
 export { default as styled } from './styled-components';
+
+export { init } from './standalone';
