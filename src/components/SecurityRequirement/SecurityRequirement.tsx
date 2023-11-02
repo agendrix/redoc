@@ -38,7 +38,7 @@ export function SecurityRequirements(props: SecurityRequirementsProps) {
   return (
     <>
       <Wrap $expanded={expanded}>
-        <AuthHeaderColumn onClick={() => setExpanded(!expanded)}>
+        <AuthHeaderColumn onClick={() => setExpanded(!expanded)} style={{ display: 'flex' }}>
           <AuthHeader>Authorizations:</AuthHeader>
           <ShelfIcon size={'1.3em'} direction={expanded ? 'down' : 'right'} />
         </AuthHeaderColumn>
@@ -58,7 +58,7 @@ export function SecurityRequirements(props: SecurityRequirementsProps) {
         operationSecuritySchemes.map((scheme, idx) => (
           <SecurityDetailsStyle key={idx}>
             <h5>
-              <LockIcon /> {AUTH_TYPES[scheme.type] || scheme.type}: {scheme.id}
+              {AUTH_TYPES[scheme.type] || scheme.type}: {scheme.id}
             </h5>
             <Markdown source={scheme.description || ''} />
             <SecurityDetails
@@ -73,15 +73,6 @@ export function SecurityRequirements(props: SecurityRequirementsProps) {
     </>
   );
 }
-
-const LockIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11">
-    <path
-      fill="currentColor"
-      d="M18 10V6A6 6 0 0 0 6 6v4H3v14h18V10h-3zM8 6c0-2.206 1.794-4 4-4s4 1.794 4 4v4H8V6zm11 16H5V12h14v10z"
-    />
-  </svg>
-);
 
 function getRequiredScopes(id: string, securities: SecurityRequirementModel[]): string[] {
   const allScopes: string[] = [];
